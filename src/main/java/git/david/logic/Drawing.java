@@ -1,8 +1,8 @@
 package git.david.logic;
 
+import git.david.Config;
 import git.david.Constants;
 import git.david.Main;
-import git.david.Utility;
 import git.david.base.GridTile;
 
 import java.awt.*;
@@ -17,7 +17,7 @@ public class Drawing extends Canvas {
 
     @Override
     public void paint(Graphics g) {
-        try {Thread.sleep(Constants.DRAW_SLEEP_TIME);
+        try {Thread.sleep(Config.draw_sleep_time);
         Cycle.nextGeneration();} catch (InterruptedException e) {throw new RuntimeException(e);}
         for (int x = 0; x < GridTilePositions.length; x++) {
             for (int y = 0; y < GridTilePositions.length; y++) {

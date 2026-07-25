@@ -17,7 +17,6 @@ public class GridTile extends Canvas {
     public GridTile(int xGridCoordinate, int yGridCoordinate) {
         this.xGridCoordinate = xGridCoordinate;
         this.yGridCoordinate = yGridCoordinate;
-        this.state = Math.random() < 0.5 ? TileState.ALIVE : TileState.DEAD;
     }
 
 }

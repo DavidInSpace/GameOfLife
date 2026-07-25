@@ -10,6 +10,7 @@ public class Main {
 
     public static boolean game_running = true;
     public static Label runningStateLabel = new Label();
+    public static Label speedLabel = new Label();
 
     void main() {
         this.createWindow();
@@ -32,6 +33,7 @@ public class Main {
         canvas.setSize(Constants.WINDOW_SIZE[0], Constants.WINDOW_SIZE[1]);
         canvas.setBackground(Color.BLACK);
 
+        canvas.addMouseWheelListener(new MouseWheelLogic());
         canvas.addMouseListener(new MouseLogic());
         canvas.addKeyListener(new KeyLogic());
 
@@ -41,15 +43,34 @@ public class Main {
         runningStateLabel.setBounds(Constants.WINDOW_SIZE[0] / 2 - 75, 0, 150, 25);
         runningStateLabel.setText("Running");
 
-        Label hintLabel = new Label();
-        hintLabel.setBackground(Color.BLACK);
-        hintLabel.setAlignment(Label.CENTER);
-        hintLabel.setFont(new Font("Arial", Font.PLAIN, 12));
-        hintLabel.setBounds(Constants.WINDOW_SIZE[0] / 2 - 250, 30, 500, 25);
-        hintLabel.setText("Cells can only be placed when paused  |  Press Space to pause/unpause");
+        Label pauseHintLabel = new Label();
+        pauseHintLabel.setBackground(Color.BLACK);
+        pauseHintLabel.setForeground(Color.GRAY);
+        pauseHintLabel.setAlignment(Label.CENTER);
+        pauseHintLabel.setFont(new Font("Arial", Font.PLAIN, 12));
+        pauseHintLabel.setBounds(Constants.WINDOW_SIZE[0] / 2 - 250, 25, 500, 25);
+        pauseHintLabel.setText("Cells can only be placed when paused  |  Press Space to pause/unpause");
+
+
+        speedLabel.setBackground(Color.BLACK);
+        speedLabel.setForeground(Color.CYAN);
+        speedLabel.setAlignment(Label.CENTER);
+        speedLabel.setFont(new Font("Arial", Font.PLAIN, 15));
+        speedLabel.setBounds(30, 0, 125, 25);
+        speedLabel.setText("Game Speed: " + (int) (Config.draw_sleep_time / 150F + (150F - Config.draw_sleep_time)));
+
+         Label speedHintLabel = new Label();
+         speedHintLabel.setBackground(Color.BLACK);
+         speedHintLabel.setForeground(Color.GRAY);
+         speedHintLabel.setAlignment(Label.CENTER);
+         speedHintLabel.setFont(new Font("Arial", Font.PLAIN, 12));
+         speedHintLabel.setBounds(20, 25, 150, 25);
+         speedHintLabel.setText("Scroll to change speed");
 
         frame.add(runningStateLabel);
-        frame.add(hintLabel);
+        frame.add(pauseHintLabel);
+         frame.add(speedLabel);
+         frame.add(speedHintLabel);
         frame.add(canvas);
 
         frame.pack();
