@@ -7,7 +7,7 @@ This is a small project I made based on [Conway's game of life](https://en.wikip
 2. Double click to launch
 
 ## Controls:
-- Press *Space* to pause and unpause
-- Left click anywhere on the game window while paused to make a dead cell alive
-- Use the mouse wheel to change the game speed
+- *Space* to pause and unpause
+- *Left click* anywhere on the game window while paused to make a dead cell alive
+- *Mouse wheel* to change the game speed
 
