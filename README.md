@@ -6,4 +6,4 @@ This is a small project I made based on [Conway's game of life](https://en.wikip
 2. Double click to launch
 
 
-[App Screenshot](https://imgur.com/a/wYQiPbS#6ekvEWi)
+![Screenshot of the app](https://imgur.com/a/wYQiPbS#6ekvEWi)
