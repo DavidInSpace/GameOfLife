@@ -22,11 +22,11 @@ public record Constants() {
     // How big the grid will be {X, Y}. Both values should be the same or the grid won't be made out of squares
     public final static int[] GRID_SIZE = {40, 40}; // Default: {40, 40}
 
-    public final static int TILE_SIZE_X = WINDOW_SIZE[0] / GRID_SIZE[0]; // (shouldn't be changed)
-    public final static int TILE_SIZE_Y = WINDOW_SIZE[1] / GRID_SIZE[1]; // (shouldn't be changed)
+    public final static int TILE_SIZE_X = WINDOW_SIZE[0] / GRID_SIZE[0]; // (should NEVER be changed)
+    public final static int TILE_SIZE_Y = WINDOW_SIZE[1] / GRID_SIZE[1]; // (should NEVER be changed)
 
     /** -- OTHER -- **/
-    public final static int DRAW_SLEEP_TIME = 0; // Default: 0 | Sleep time between re-drawing the screen (shouldn't be changed)
+    public final static int DRAW_SLEEP_TIME = 35; // Default: 35 | Sleep time between re-drawing the screen (shouldn't be changed)
     public final static boolean DRAW_GRID_LINES = false; // Default: false | Gets glitchy if enabled (shouldn't be changed)
     public final static int TOTAL_NUMBER_OF_POINTS = 4; // Default: 4 | Setting this to 3 will turn all tiles in to triangles any other value won't work (shouldn't be changed)
     public final static int MOUSE_CLICK_DETECTION_OFFSET = 35; // Default: 35 | (shouldn't be changed)

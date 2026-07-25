@@ -12,11 +12,12 @@ public class GridTile extends Canvas {
     public int xGridCoordinate;
     public int yGridCoordinate;
     public TileState state = TileState.DEAD;
-    public TileState nextState = TileState.ALIVE;
+    public TileState nextState = TileState.DEAD;
 
     public GridTile(int xGridCoordinate, int yGridCoordinate) {
         this.xGridCoordinate = xGridCoordinate;
         this.yGridCoordinate = yGridCoordinate;
+        this.state = Math.random() < 0.5 ? TileState.ALIVE : TileState.DEAD;
     }
 
 }

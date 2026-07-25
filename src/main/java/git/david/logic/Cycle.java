@@ -46,7 +46,6 @@ public class Cycle {
             try {
                 if (GridTilePositions[x + cellsCheckPosition[0]][y + cellsCheckPosition[1]].state == GridTile.TileState.ALIVE) {
                     AliveCellsAmount++;
-                    throw (new InterruptedException());
                 }
             } catch (Exception e) {
 
