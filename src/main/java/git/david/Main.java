@@ -10,7 +10,10 @@ public class Main {
 
     public static boolean game_running = true;
     public static Label runningStateLabel = new Label();
+    public static Label pauseHintLabel = new Label();
     public static Label speedLabel = new Label();
+    public static Label speedHintLabel = new Label();
+    public static Label hintsHintLabel = new Label();
 
     void main() {
         this.createWindow();
@@ -18,7 +21,7 @@ public class Main {
         Cycle.nextGeneration();
     }
 
-     void createWindow() {
+    void createWindow() {
         JFrame frame = new JFrame("Game Of Life");
 
         // Set window icon
@@ -33,6 +36,7 @@ public class Main {
         canvas.setSize(Constants.WINDOW_SIZE[0], Constants.WINDOW_SIZE[1]);
         canvas.setBackground(Color.BLACK);
 
+        canvas.addMouseMotionListener(new MouseMotionLogic() {});
         canvas.addMouseWheelListener(new MouseWheelLogic());
         canvas.addMouseListener(new MouseLogic());
         canvas.addKeyListener(new KeyLogic());
@@ -43,14 +47,12 @@ public class Main {
         runningStateLabel.setBounds(Constants.WINDOW_SIZE[0] / 2 - 75, 0, 150, 25);
         runningStateLabel.setText("Running");
 
-        Label pauseHintLabel = new Label();
         pauseHintLabel.setBackground(Color.BLACK);
         pauseHintLabel.setForeground(Color.GRAY);
         pauseHintLabel.setAlignment(Label.CENTER);
         pauseHintLabel.setFont(new Font("Arial", Font.PLAIN, 12));
-        pauseHintLabel.setBounds(Constants.WINDOW_SIZE[0] / 2 - 250, 25, 500, 25);
+        pauseHintLabel.setBounds((Constants.WINDOW_SIZE[0] / 2 - 210), 25, 425, 25);
         pauseHintLabel.setText("Cells can only be placed when paused  |  Press Space to pause/unpause");
-
 
         speedLabel.setBackground(Color.BLACK);
         speedLabel.setForeground(Color.CYAN);
@@ -59,18 +61,25 @@ public class Main {
         speedLabel.setBounds(30, 0, 125, 25);
         speedLabel.setText("Game Speed: " + (int) (Config.draw_sleep_time / 150F + (150F - Config.draw_sleep_time)));
 
-         Label speedHintLabel = new Label();
-         speedHintLabel.setBackground(Color.BLACK);
-         speedHintLabel.setForeground(Color.GRAY);
-         speedHintLabel.setAlignment(Label.CENTER);
-         speedHintLabel.setFont(new Font("Arial", Font.PLAIN, 12));
-         speedHintLabel.setBounds(20, 25, 150, 25);
-         speedHintLabel.setText("Scroll to change speed");
+        speedHintLabel.setBackground(Color.BLACK);
+        speedHintLabel.setForeground(Color.GRAY);
+        speedHintLabel.setAlignment(Label.CENTER);
+        speedHintLabel.setFont(new Font("Arial", Font.PLAIN, 12));
+        speedHintLabel.setBounds(20, 25, 150, 25);
+        speedHintLabel.setText("Scroll to change speed");
+
+        hintsHintLabel.setBackground(Color.BLACK);
+        hintsHintLabel.setForeground(Color.GRAY);
+        hintsHintLabel.setAlignment(Label.CENTER);
+        hintsHintLabel.setFont(new Font("Arial", Font.PLAIN, 12));
+        hintsHintLabel.setBounds(Constants.WINDOW_SIZE[0] - 185, 10, 175, 25);
+        hintsHintLabel.setText("Press \"1\" to hide/show hints");
 
         frame.add(runningStateLabel);
         frame.add(pauseHintLabel);
-         frame.add(speedLabel);
-         frame.add(speedHintLabel);
+        frame.add(speedLabel);
+        frame.add(speedHintLabel);
+        frame.add(hintsHintLabel);
         frame.add(canvas);
 
         frame.pack();

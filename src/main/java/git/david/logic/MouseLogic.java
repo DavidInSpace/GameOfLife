@@ -10,14 +10,11 @@ public class MouseLogic implements java.awt.event.MouseListener {
         if (event.getButton() == MouseEvent.BUTTON1) {
             GridTile tile = GridLogic.findTileFromWindowPosition(event.getX(), event.getY(), false);
             assert tile != null;
-            tile.state = GridTile.TileState.ALIVE;
-            event.getComponent().repaint();
-        }
-
-        if (event.getButton() == MouseEvent.BUTTON3) {
-            GridTile tile = GridLogic.findTileFromWindowPosition(event.getX(), event.getY(), false);
-            assert tile != null;
-            tile.state = GridTile.TileState.DEAD;
+            if (tile.state == GridTile.TileState.ALIVE) {
+                tile.state = GridTile.TileState.DEAD;
+            } else {
+                tile.state = GridTile.TileState.ALIVE;
+            }
             event.getComponent().repaint();
         }
     }

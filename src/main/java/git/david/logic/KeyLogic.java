@@ -1,5 +1,6 @@
 package git.david.logic;
 
+import git.david.Config;
 import git.david.Main;
 import git.david.Utility;
 
@@ -12,6 +13,16 @@ public class KeyLogic implements KeyListener {
     @Override public void keyTyped(KeyEvent event) {}
 
     @Override public void keyPressed(KeyEvent event) {
+        System.out.println(event.getKeyCode());
+        if (event.getKeyCode() == KeyEvent.VK_1 && !Config.hints_visibility) {
+            Config.hints_visibility = true;
+        } else if (event.getKeyCode() == KeyEvent.VK_1) {
+            Config.hints_visibility = false;
+        }
+        Main.pauseHintLabel.setVisible(Config.hints_visibility);
+        Main.speedHintLabel.setVisible(Config.hints_visibility);
+        Main.hintsHintLabel.setVisible(Config.hints_visibility);
+
         if (event.getKeyCode()  == KeyEvent.VK_SPACE && Main.game_running) {
             Main.game_running = false;
             Main.runningStateLabel.setText("Paused");

@@ -12,7 +12,7 @@ public record Constants() {
 
 
     /** -- COLORS -- **/
-    public final static Color GRID_COLOR = Color.DARK_GRAY; // Default: Color.DARK_GRAY | Color of the grid if it's enabled
+    public final static Color GRID_COLOR = new Color(15, 15, 15, 255); // Default: Color.DARK_GRAY | Color of the grid if it's enabled
     public final static Color ALIVE_CELL_COLOR = Color.WHITE; // Default: Color.WHITE | Color of alive cells
     public final static Color DEAD_CELL_COLOR = Color.BLACK; // Default: Color.BLACK | Color of dead cells
 
@@ -26,7 +26,7 @@ public record Constants() {
     public final static int TILE_SIZE_Y = WINDOW_SIZE[1] / GRID_SIZE[1]; // (should NEVER be changed)
 
     /** -- OTHER -- **/
-    public final static boolean DRAW_GRID_LINES = false; // Default: false | Gets glitchy if enabled (shouldn't be changed)
+    public final static boolean DRAW_GRID_LINES = false; // Default: false | Gets glitchy if enabled
     public final static int TOTAL_NUMBER_OF_POINTS = 4; // Default: 4 | Setting this to 3 will turn all tiles in to triangles any other value won't work (shouldn't be changed)
     public final static int MOUSE_CLICK_DETECTION_OFFSET = 35; // Default: 35 | (shouldn't be changed)
 

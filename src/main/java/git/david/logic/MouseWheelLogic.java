@@ -8,8 +8,8 @@ import java.awt.event.MouseWheelListener;
 import static git.david.Main.speedLabel;
 
 public class MouseWheelLogic implements MouseWheelListener {
-    @Override public void mouseWheelMoved(MouseWheelEvent e) {
-        if (e.getWheelRotation() > 0) {
+    @Override public void mouseWheelMoved(MouseWheelEvent event) {
+        if (event.getWheelRotation() > 0) {
             Config.draw_sleep_time--;
         } else {
             Config.draw_sleep_time++;
